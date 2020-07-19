@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .forms import ReviewForm
@@ -11,7 +11,10 @@ def show_movies(request):
 
 
 def add_review(request):
-    form = ReviewForm()
+    form = ReviewForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect("index")
     context = {
         'form': form
     }

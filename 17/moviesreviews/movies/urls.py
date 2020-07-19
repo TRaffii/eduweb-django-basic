@@ -19,7 +19,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.show_movies),
+    path('', views.show_movies, name="index"),
     path('add_review', views.add_review),
 
 ]

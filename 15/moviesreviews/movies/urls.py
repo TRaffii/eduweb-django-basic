@@ -20,4 +20,6 @@ from . import views
 
 urlpatterns = [
     path('', views.show_movies),
+    path('add_review', views.add_review),
+
 ]

@@ -11,6 +11,8 @@ def show_movies(request):
 
 
 def add_review(request):
+    if not request.user.is_authenticated:
+        return redirect("index")
     form = ReviewForm(request.POST or None)
     if form.is_valid():
         form.save()

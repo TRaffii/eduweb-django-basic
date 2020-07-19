@@ -15,4 +15,3 @@ class IcecreamModelTests(TestCase):
         icecream = Icecream(name='Test', is_featured=True, price=2)
         icecream.save()
         self.assertEqual(icecream.is_really_featured(), True)
-    

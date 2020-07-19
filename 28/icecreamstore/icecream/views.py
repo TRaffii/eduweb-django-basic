@@ -21,7 +21,10 @@ def get_random_icecream(request):
 
     return JsonResponse({'icecream': icecream.name})
 
+def get_featured_taste(request):
+    icecream = Icecream.objects.filter(is_featured=True)
 
+    return JsonResponse({'icecream': icecream.name})
 
 class IcecreamView(viewsets.ModelViewSet):
     serializer_class = IcecreamSerializer

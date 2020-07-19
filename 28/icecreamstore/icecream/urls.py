@@ -8,5 +8,6 @@ router.register('icecream', views.IcecreamView, 'icecream')
 urlpatterns = [
     path('', views.hello_view),
     path('api/', include(router.urls)),
-    path('api/random', views.get_random_icecream)
+    path('api/random', views.get_random_icecream),
+    path('api/featured', views.get_featured_taste()),
 ]

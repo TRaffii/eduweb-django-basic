@@ -1,5 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -17,7 +18,9 @@ def add_review(request):
         return redirect("index")
     form = ReviewForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        review = form.save()
+        send_mail("Review added!", f"Added a review: {review.title}",
+                  "no-reply@moviesreviews.com", )
         return redirect("index")
     context = {
         'form': form

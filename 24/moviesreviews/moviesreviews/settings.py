@@ -119,3 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_USE_TLS = True

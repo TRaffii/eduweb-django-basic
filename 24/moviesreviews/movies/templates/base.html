@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Movies reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" crossorigin="anonymous">
+  </head>
+  <body>
+  <nav>
+      <a href="{% url 'index' %}">Index</a>
+      <a href="{% url 'add_review' %}">Add a review</a>
+  </nav>
+  <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

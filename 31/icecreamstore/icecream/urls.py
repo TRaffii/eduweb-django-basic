@@ -11,5 +11,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/random', views.get_random_icecream),
     path('api/featured', views.get_featured_taste),
-
+    path('api/token', TokenObtainPairView.as_view())
 ]

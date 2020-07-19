@@ -19,3 +19,7 @@ def add_review(request):
         'form': form
     }
     return render(request, "add_review.html", context)
+
+
+def show_movie(request, movie_id):
+    return None

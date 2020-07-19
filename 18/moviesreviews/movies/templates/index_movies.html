@@ -10,6 +10,7 @@
     {% endif %}
     {% for movie in movies %}
     <li>{{ movie.title }}  -- {{ movie.description | safe }}
+        <a href="{% url 'show_movie' movie.id %}">Show movie</a>
         </li>
     {% endfor %}
 </ul>

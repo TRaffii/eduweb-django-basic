@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from .forms import ReviewForm
@@ -22,12 +22,13 @@ def add_review(request):
 
 
 def show_movie(request, movie_id):
-    movie = Movie.objects.get(id=movie_id)
+    movie = get_object_or_404(Movie, id=movie_id)
     reviews = Review.objects.filter(movie=movie)
 
     context = {
         'movie': movie,
-        'reviews': reviews
+        'reviews': reviews,
+        'error': None
     }
 
     return render(request, "show_movie.html", context)

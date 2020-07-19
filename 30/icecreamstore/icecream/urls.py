@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 from . import views
 
@@ -10,4 +11,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/random', views.get_random_icecream),
     path('api/featured', views.get_featured_taste),
+
 ]

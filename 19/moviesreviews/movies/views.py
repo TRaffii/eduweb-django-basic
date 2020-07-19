@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from .forms import ReviewForm
-from .models import Movie
+from .models import Movie, Review
 
 
 def show_movies(request):
@@ -22,4 +22,12 @@ def add_review(request):
 
 
 def show_movie(request, movie_id):
-    return None
+    movie = Movie.objects.get(id=movie_id)
+    reviews = Review.objects.filter(movie=movie)
+
+    context = {
+        'movie': movie,
+        'reviews': reviews
+    }
+
+    return render(request, "show_movie.html", context)

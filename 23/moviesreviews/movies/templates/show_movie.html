@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if error %}
+    {{ error }}
+{% else %}
+    <h2>
+        {{ movie.title }}
+    </h2>
+    <p> {{ movie.description }}</p>
+    <img src="{% static movie.image_url %}" alt="Image" />
+    <h3>Reviews</h3>
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.title }} - {{ review.text }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

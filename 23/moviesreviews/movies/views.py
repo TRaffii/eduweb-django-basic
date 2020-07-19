@@ -1,3 +1,5 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -34,3 +36,17 @@ def show_movie(request, movie_id):
     }
 
     return render(request, "show_movie.html", context)
+
+
+def login_view(request):
+    auth_form = AuthenticationForm()
+    if request.method == 'POST':
+        auth_form = AuthenticationForm(data=request.POST)
+        if auth_form.is_valid():
+            user = auth_form.get_user()
+            login(request, user)
+            return redirect('index')
+    context = {
+        'form': auth_form
+    }
+    return render(request, "login.html", context)

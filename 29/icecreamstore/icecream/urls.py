@@ -9,5 +9,5 @@ urlpatterns = [
     path('', views.hello_view),
     path('api/', include(router.urls)),
     path('api/random', views.get_random_icecream),
-    path('api/featured', views.get_featured_taste()),
+    path('api/featured', views.get_featured_taste),
 ]

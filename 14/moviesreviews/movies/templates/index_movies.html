@@ -1,14 +1,16 @@
-<html>
-    <h1>All movies</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All movies</h1>
 
 
-    <ul>
-        {% if movies.count > 0 %}
-            <h2>Here are the movies</h2></h1>
-        {% endif %}
-        {% for movie in movies %}
-        <li>{{ movie.title }}  -- {{ movie.description }}
-            </li>
-        {% endfor %}
-    </ul>
-</html>
+<ul>
+    {% if movies.count > 0 %}
+        <h2>Here are the movies</h2></h1>
+    {% endif %}
+    {% for movie in movies %}
+    <li>{{ movie.title }}  -- {{ movie.description | safe }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
